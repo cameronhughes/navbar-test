@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Navbar Test</title>
+    <title>Our Menu</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
 
@@ -70,37 +70,16 @@
             text-decoration: none;
         }
 
-        /* Dropdown Container */
-        .dropdown-container {
-            position: relative;
-        }
-
-        .dropdown-button {
-            padding: 10px 15px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .dropdown-button:hover {
-            background-color: #0056b3;
-        }
-
         /* Dropdown Menu */
         .dropdown-menu {
+            background-color: #007BFF;
+            width: 100%;
+            text-align: center;
+            display: none;
             position: absolute;
             top: 100%;
-            right: 0;
-            background-color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            display: none;
+            left: 0;
             z-index: 1000;
-            min-width: 150px;
         }
 
         .dropdown-menu li {
@@ -114,133 +93,68 @@
         .dropdown-menu li a {
             display: block;
             padding: 10px 20px;
-            color: #333;
+            color: white;
+            background-color: #007BFF;
         }
 
         .dropdown-menu li a:hover {
-            background-color: #f1f1f1;
+            background-color: #0056b3;
         }
 
-        /* Show dropdown on focus */
-        .dropdown-container:focus-within .dropdown-menu {
+        .dropdown-container button:focus + .dropdown-menu,
+        .dropdown-container button:hover + .dropdown-menu {
             display: block;
         }
-           .container {
-      width: 100%;
-    }
 
-    .section {
-      border: 1px solid black;
-      padding: 20px;
-      margin: 10px 0;
-      background-color: gray;
-      font-size: 18px;
-      position: relative;
-    }
+        /* Page Heading */
+        .page-heading {
+            text-align: center;
+            margin: 20px 0;
+        }
 
-    .section-title-left {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background-color: red;
-      font-size: 12px;
-      padding: 5px 10px;
-      border: 1px solid black;
-    }
-    .section-title-middle {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background-color: green;
-      font-size: 12px;
-      padding: 5px 10px;
-      border: 1px solid black;
-    }
-    .section-title-right {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background-color: blue;
-      font-size: 12px;
-      padding: 5px 10px;
-      border: 1px solid black;
-    }
-
-    /* Desktop view (992px and above) */
-    @media (min-width: 992px) {
-      .container {
-        display: flex;
-        justify-content: space-between;
-      }
-
-      .section {
-        width: 32%;
-        margin: 0;
-      }
-    }
-
-    /* Tablet view (768px to 991px) */
-    @media (min-width: 768px) and (max-width: 991px) {
-      .container {
-        display: flex;
-        flex-wrap: wrap;
-      }
-
-      .section {
-        width: 48%;
-        margin: 1%;
-      }
-
-      .section:nth-child(3) {
-        width: 100%;
-        margin: 10px 0;
-      }
-    }
-
-    /* Mobile view (767px and below) */
-    @media (max-width: 767px) {
-      .section {
-        width: 100%;
-      }
-    }
+        /* Tall Section */
+        .tall-section {
+            height: 1000px;
+            background-color: #e9ecef;
+            padding: 20px;
+        }
     </style>
 </head>
 <body>
     <header class="header">
         <nav class="navbar">
-            
             <!-- Navbar Brand -->
             <div class="navbar-brand">
                 <a href="index.html">
-                    <h1>Navbar Test</h1>
+                    <h1>Our Menu</h1>
                 </a>
             </div>
 
             <!-- Dropdown Menu -->
             <div class="dropdown-container">
-                <button class="dropdown-button">Button</button>
+                <button class="dropdown-button">Menu</button>
                 <ul class="dropdown-menu">
-                    <li><a href="#option1">Rectangle 1</a></li>
-                    <li><a href="#option2">Rectangle 2</a></li>
-                    <li><a href="#option3">Rectangle 3</a></li>
+                    <li><a href="#chicken">Chicken</a></li>
+                    <li><a href="#beef">Beef</a></li>
+                    <li><a href="#sushi">Sushi</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
+    <!-- Page Heading -->
     <div class="container">
-        <div class="section">
-            <div class="section-title-left">Left Box</div>
-            <p>The left box, also known as the first box, is the box that is the opposite of the right box.</p>
-        </div>
-        <div class="section">
-            <div class="section-title-middle">Middle Box</div>
-            <p>The Middle box is also the second box of the series of boxes on this website. It is primarily known for being the only box between two boxes and being the only second box.</p>
-        </div>
-        <div class="section">
-            <div class="section-title-right">Right Box</div>
-            <p>Being the last box in the series of boxes causes it to be the third box of the three. It is capable of becoming the big box when conditions are met.</p>
+        <h1 class="page-heading">Our Menu</h1>
+    </div>
+
+    <!-- Tall Section -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 tall-section">
+                <p>Scroll through this tall section with a distinctive background color. Add more content here if necessary to simulate a large amount of information.</p>
+            </div>
         </div>
     </div>
 </body>
 </html>
+
