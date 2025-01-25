@@ -104,6 +104,11 @@
             z-index: 1000;
         }
 
+        .dropdown-button:focus + .dropdown-menu,
+        .dropdown-menu:hover {
+            display: block;
+        }
+
         .dropdown-menu li {
             border-bottom: 1px solid #ddd;
             text-align: center;
@@ -113,39 +118,6 @@
             border-bottom: none;
         }
 
-
-@media (min-width: 768px) {
-    .dropdown-container {
-        display: none; 
-    }
-    
-    .dropdown-content {
-        display: block;
-        margin: 20px 0;
-        padding: 20px;
-        background-color: #f9f9f9;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-    }
-}
-
-@media (max-width: 767px) {
-    .dropdown-content {
-        display: none;
-    }
-    
-    .dropdown-content:target {
-        display: block; 
-    }
-    
-    .dropdown-container {
-        display: inline-block;
-    }
-}
-
-
-
-        
         .dropdown-menu li a {
             display: block;
             padding: 10px 20px;
@@ -156,22 +128,40 @@
             background-color: #f1f1f1;
         }
 
-        /* Show dropdown on focus */
-        .dropdown-container:focus-within .dropdown-menu {
-            display: block;
-        }
-
         /* Content sections */
         .dropdown-content {
-            display: none;
             padding: 20px;
             background-color: #f9f9f9;
             border-top: 1px solid #ddd;
         }
 
-        /* Show content when targeted */
-        .dropdown-content:target {
-            display: block;
+        @media (min-width: 768px) {
+            .dropdown-container {
+                display: none;
+            }
+            
+            .dropdown-content {
+                display: block !important;
+                margin: 20px 0;
+                padding: 20px;
+                background-color: #f9f9f9;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .dropdown-content {
+                display: none;
+            }
+            
+            .dropdown-content:target {
+                display: block;
+            }
+            
+            .dropdown-container {
+                display: inline-block;
+            }
         }
 
         .container {
@@ -272,6 +262,7 @@
         </nav>
     </header>
 
+    <!-- Dropdown content sections -->
     <div id="content1" class="dropdown-content">
         <h3>Rectangle 1 Content</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -303,3 +294,4 @@
     </div>
 </body>
 </html>
+
