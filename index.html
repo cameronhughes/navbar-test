@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Navbar Test</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-
     <style>
         /* General Reset */
         body, ul, li, a, button, h1 {
@@ -21,13 +19,17 @@
 
         /* Header Styles */
         .header {
-            background-color: #333; /* Dark header background */
+            background-color: #333;
             padding: 10px 0;
             color: white;
         }
 
         /* Navbar Styles */
         .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
             position: relative;
         }
 
@@ -49,11 +51,11 @@
             display: flex;
             align-items: left;
             text-align: left;
-            padding: 0; /* Removes excess padding */
+            padding: 0;
         }
 
         .navbar-brand h1 {
-            font-family: Ariel;
+            font-family: Arial;
             color: White;
             font-size: 1.5em;
             text-transform: uppercase;
@@ -63,13 +65,15 @@
             line-height: 1;
         }
 
-        .navbar-brand a:hover, .navbar-brand a:focus {
+        .navbar-brand a:hover,
+        .navbar-brand a:focus {
             text-decoration: none;
         }
 
         /* Dropdown Container */
         .dropdown-container {
-            position: static;
+            position: relative;
+            display: inline-block;
         }
 
         .dropdown-button {
@@ -89,8 +93,8 @@
 
         /* Dropdown Menu */
         .dropdown-menu {
-            position: absolute;
-            top: 100%;
+            position: fixed;
+            top: 60px;
             left: 0;
             right: 0;
             width: 100%;
@@ -98,13 +102,11 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             display: none;
             z-index: 1000;
-
         }
 
         .dropdown-menu li {
             border-bottom: 1px solid #ddd;
             text-align: center;
-            padding: 10px 0;
         }
 
         .dropdown-menu li:last-child {
@@ -125,108 +127,132 @@
         .dropdown-container:focus-within .dropdown-menu {
             display: block;
         }
-           .container {
-      width: 100%;
-    }
 
-    .section {
-      border: 1px solid black;
-      padding: 20px;
-      margin: 10px 0;
-      background-color: gray;
-      font-size: 18px;
-      position: relative;
-    }
+        /* Content sections */
+        .dropdown-content {
+            display: none;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-top: 1px solid #ddd;
+        }
 
-    .section-title-left {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background-color: red;
-      font-size: 12px;
-      padding: 5px 10px;
-      border: 1px solid black;
-    }
-    .section-title-middle {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background-color: green;
-      font-size: 12px;
-      padding: 5px 10px;
-      border: 1px solid black;
-    }
-    .section-title-right {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background-color: blue;
-      font-size: 12px;
-      padding: 5px 10px;
-      border: 1px solid black;
-    }
+        /* Show content when targeted */
+        .dropdown-content:target {
+            display: block;
+        }
 
-    /* Desktop view (992px and above) */
-    @media (min-width: 992px) {
-      .container {
-        display: flex;
-        justify-content: space-between;
-      }
+        .container {
+            width: 100%;
+        }
 
-      .section {
-        width: 32%;
-        margin: 0;
-      }
-    }
+        .section {
+            border: 1px solid black;
+            padding: 20px;
+            margin: 10px 0;
+            background-color: gray;
+            font-size: 18px;
+            position: relative;
+        }
 
-    /* Tablet view (768px to 991px) */
-    @media (min-width: 768px) and (max-width: 991px) {
-      .container {
-        display: flex;
-        flex-wrap: wrap;
-      }
+        .section-title-left {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: red;
+            font-size: 12px;
+            padding: 5px 10px;
+            border: 1px solid black;
+        }
 
-      .section {
-        width: 48%;
-        margin: 1%;
-      }
+        .section-title-middle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: green;
+            font-size: 12px;
+            padding: 5px 10px;
+            border: 1px solid black;
+        }
 
-      .section:nth-child(3) {
-        width: 100%;
-        margin: 10px 0;
-      }
-    }
+        .section-title-right {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: blue;
+            font-size: 12px;
+            padding: 5px 10px;
+            border: 1px solid black;
+        }
 
-    /* Mobile view (767px and below) */
-    @media (max-width: 767px) {
-      .section {
-        width: 100%;
-      }
-    }
+        /* Desktop view */
+        @media (min-width: 992px) {
+            .container {
+                display: flex;
+                justify-content: space-between;
+            }
+            .section {
+                width: 32%;
+                margin: 0;
+            }
+        }
+
+        /* Tablet view */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .container {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .section {
+                width: 48%;
+                margin: 1%;
+            }
+            .section:nth-child(3) {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+
+        /* Mobile view */
+        @media (max-width: 767px) {
+            .section {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
     <header class="header">
         <nav class="navbar">
-            
-            <!-- Navbar Brand -->
             <div class="navbar-brand">
                 <a href="index.html">
                     <h1>Navbar Test</h1>
                 </a>
             </div>
-
-            <!-- Dropdown Menu -->
             <div class="dropdown-container">
                 <button class="dropdown-button">Button</button>
                 <ul class="dropdown-menu">
-                    <li><a href="#option1">Rectangle 1</a></li>
-                    <li><a href="#option2">Rectangle 2</a></li>
-                    <li><a href="#option3">Rectangle 3</a></li>
+                    <li><a href="#content1">Rectangle 1</a></li>
+                    <li><a href="#content2">Rectangle 2</a></li>
+                    <li><a href="#content3">Rectangle 3</a></li>
                 </ul>
             </div>
         </nav>
     </header>
+
+    <div id="content1" class="dropdown-content">
+        <h3>Rectangle 1 Content</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+
+    <div id="content2" class="dropdown-content">
+        <h3>Rectangle 2 Content</h3>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+
+    <div id="content3" class="dropdown-content">
+        <h3>Rectangle 3 Content</h3>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    </div>
 
     <div class="container">
         <div class="section">
