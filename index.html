@@ -20,65 +20,76 @@
       font-family: Arial, sans-serif;
       padding: 10px;
       color: 66096a
-    }
 
-   .navbar {
-    background-color: #333;
-    overflow: hidden;
-}
-
-.navbar-menu {
-    display: flex;
-    padding: 0;
+body, ul, li, a, button {
     margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
 }
 
-.navbar-menu > li {
+/* Dropdown Container */
+.dropdown-container {
     position: relative;
+    display: inline-block;
 }
 
-.navbar-menu > li > a {
+/* Dropdown Button */
+.dropdown-button {
+    padding: 10px 20px;
+    background-color: #007BFF;
     color: white;
-    padding: 15px 20px;
-    display: block;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
 }
 
-.navbar-menu > li > a:hover {
-    background-color: #575757;
+.dropdown-button:focus {
+    outline: none;
+    background-color: #0056b3;
 }
 
-/* Dropdown styles */
+/* Dropdown Menu (Hidden by Default) */
 .dropdown-menu {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #444;
-    display: none;
-    min-width: 200px;
+    background-color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: none; /* Hidden initially */
+    z-index: 1000;
+    overflow: hidden;
+}
+
+/* Dropdown Menu Items */
+.dropdown-menu li {
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
 }
 
 .dropdown-menu li a {
-    padding: 10px 20px;
     display: block;
-    color: white;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
 }
 
 .dropdown-menu li a:hover {
-    background-color: #575757;
+    background-color: #f1f1f1;
 }
 
-/* Show dropdown on hover */
-.dropdown:hover .dropdown-menu {
-    display: block;
+/* Show dropdown on button focus */
+.dropdown-container:focus-within .dropdown-menu {
+    display: block; /* Show menu when container or child has focus */
 }
-      
-      
 
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
 
     .container {
       width: 100%;
@@ -161,21 +172,14 @@
   </style>
 </head>
 <body>
-  <nav class="navbar">
-        <ul class="navbar-menu">
-            <li><a href="#">Home</a></li>
-            <li class="dropdown">
-                <a href="#">Services</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Web Development</a></li>
-                    <li><a href="#">SEO Optimization</a></li>
-                    <li><a href="#">Marketing</a></li>
-                </ul>
-            </li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+    <div class="dropdown-container">
+        <button class="dropdown-button" id="dropdown-toggle">Menu</button>
+        <ul class="dropdown-menu">
+            <li><a href="#option1">Option 1</a></li>
+            <li><a href="#option2">Option 2</a></li>
+            <li><a href="#option3">Option 3</a></li>
         </ul>
-    </nav>
+    </div>
 
 
     
