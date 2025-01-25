@@ -113,6 +113,39 @@
             border-bottom: none;
         }
 
+
+@media (min-width: 768px) {
+    .dropdown-container {
+        display: none; 
+    }
+    
+    .dropdown-content {
+        display: block;
+        margin: 20px 0;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+}
+
+@media (max-width: 767px) {
+    .dropdown-content {
+        display: none;
+    }
+    
+    .dropdown-content:target {
+        display: block; 
+    }
+    
+    .dropdown-container {
+        display: inline-block;
+    }
+}
+
+
+
+        
         .dropdown-menu li a {
             display: block;
             padding: 10px 20px;
