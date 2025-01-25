@@ -10,17 +10,6 @@
 
   <style>
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      padding: 10px;
-      color: 66096a
-
 body, ul, li, a, button {
     margin: 0;
     padding: 0;
@@ -30,29 +19,56 @@ body, ul, li, a, button {
     box-sizing: border-box;
 }
 
+/* Header Styles */
+.header {
+    background-color: #333; /* Dark header background */
+    padding: 10px 0;
+    color: white;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 20px;
+}
+
+/* Navbar Links */
+.nav-link {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: #444;
+    border-radius: 5px;
+}
+
 /* Dropdown Container */
 .dropdown-container {
     position: relative;
-    display: inline-block;
+    margin-left: 15px;
 }
 
-/* Dropdown Button */
 .dropdown-button {
-    padding: 10px 20px;
+    padding: 10px 15px;
     background-color: #007BFF;
     color: white;
     border: none;
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
-.dropdown-button:focus {
-    outline: none;
+.dropdown-button:hover {
     background-color: #0056b3;
 }
 
-/* Dropdown Menu (Hidden by Default) */
+/* Dropdown Menu */
 .dropdown-menu {
     position: absolute;
     top: 100%;
@@ -60,12 +76,11 @@ body, ul, li, a, button {
     background-color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    display: none; /* Hidden initially */
+    display: none;
     z-index: 1000;
-    overflow: hidden;
+    min-width: 150px;
 }
 
-/* Dropdown Menu Items */
 .dropdown-menu li {
     border-bottom: 1px solid #ddd;
 }
@@ -78,16 +93,15 @@ body, ul, li, a, button {
     display: block;
     padding: 10px 20px;
     color: #333;
-    text-decoration: none;
 }
 
 .dropdown-menu li a:hover {
     background-color: #f1f1f1;
 }
 
-/* Show dropdown on button focus */
+/* Show dropdown on focus */
 .dropdown-container:focus-within .dropdown-menu {
-    display: block; /* Show menu when container or child has focus */
+    display: block;
 }
 
 
@@ -172,14 +186,21 @@ body, ul, li, a, button {
   </style>
 </head>
 <body>
-    <div class="dropdown-container">
-        <button class="dropdown-button" id="dropdown-toggle">Menu</button>
-        <ul class="dropdown-menu">
-            <li><a href="#option1">Option 1</a></li>
-            <li><a href="#option2">Option 2</a></li>
-            <li><a href="#option3">Option 3</a></li>
-        </ul>
-    </div>
+    <header class="header">
+        <nav class="navbar">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <div class="dropdown-container">
+                <button class="dropdown-button">Menu</button>
+                <ul class="dropdown-menu">
+                    <li><a href="#option1">Option 1</a></li>
+                    <li><a href="#option2">Option 2</a></li>
+                    <li><a href="#option3">Option 3</a></li>
+                </ul>
+            </div>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+    </header>
 
 
     
