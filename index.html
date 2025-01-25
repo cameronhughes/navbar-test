@@ -22,18 +22,56 @@
       color: 66096a
     }
 
-    .header-nav {
-      background-color: white;
-      border-radius: 0;
-      border: 0;
-    }
+   .navbar {
+    background-color: #333;
+    overflow: hidden;
+}
 
-    .navbar-brand {
-      color: blue;
-      text-transform: uppercase;
-      font-weight: bold;
-      margin-top: 0;
-      margin-bottom: 0;
+.navbar-menu {
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-menu > li {
+    position: relative;
+}
+
+.navbar-menu > li > a {
+    color: white;
+    padding: 15px 20px;
+    display: block;
+}
+
+.navbar-menu > li > a:hover {
+    background-color: #575757;
+}
+
+/* Dropdown styles */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    display: none;
+    min-width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu li a {
+    padding: 10px 20px;
+    display: block;
+    color: white;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #575757;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
       
       
 
@@ -123,17 +161,22 @@
   </style>
 </head>
 <body>
-  
-  <nav id="header-nav" class="navbar navbar=default">
-    <div> class="container">
-      <h1>The 3 boxes that are square</h1>
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="pull-left visible-md visible-lg">
-            
-          </a>
-  <div class="navbar-brand">
-    <a href="index.html"><h1>Navbar test</h1></a>
+  <nav class="navbar">
+        <ul class="navbar-menu">
+            <li><a href="#">Home</a></li>
+            <li class="dropdown">
+                <a href="#">Services</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">SEO Optimization</a></li>
+                    <li><a href="#">Marketing</a></li>
+                </ul>
+            </li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
 
     
 
