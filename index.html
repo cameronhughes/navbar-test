@@ -9,6 +9,24 @@
     <link rel="stylesheet" href="css/styles.css">
 
   <style>
+    
+  .navbar-brand {
+  padding-top: 25px;
+}
+
+.navbar-brand h1 { /* Restaurant name */
+  font-family: 'Lora', serif;
+  color: #557c3e;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #222;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: .75;
+}
+.navbar-brand a:hover, .navbar-brand a:focus {
+  text-decoration: none;
 
 body, ul, li, a, button {
     margin: 0;
@@ -188,8 +206,9 @@ body, ul, li, a, button {
 <header class="header">
     <nav class="navbar">
         <a href="#home" class="nav-link">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#contact" class="nav-link">Contact</a>
+        <div class="navbar-brand">
+            <a href="index.html"><h1>Navbar Test</h1></a>
+          </div>
         <div class="dropdown-container">
             <button class="dropdown-button">Menu</button>
             <ul class="dropdown-menu">
