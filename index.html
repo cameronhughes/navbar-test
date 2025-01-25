@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -32,6 +32,7 @@
             align-items: center;
             justify-content: space-between;
             padding: 0 20px;
+            width: 100%; /* Make the navbar span the entire screen */
         }
 
         /* Navbar Links */
@@ -52,7 +53,7 @@
             display: flex;
             align-items: left;
             text-align: left;
-            padding: 0; /* Removes excess padding */
+            padding: 0;
         }
 
         .navbar-brand h1 {
@@ -92,15 +93,11 @@
 
         /* Dropdown Menu */
         .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            right: 0;
             background-color: white;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 5px;
             display: none;
             z-index: 1000;
-            min-width: 150px;
         }
 
         .dropdown-menu li {
@@ -125,90 +122,87 @@
         .dropdown-container:focus-within .dropdown-menu {
             display: block;
         }
-           .container {
-      width: 100%;
-    }
 
-    .section {
-      border: 1px solid black;
-      padding: 20px;
-      margin: 10px 0;
-      background-color: gray;
-      font-size: 18px;
-      position: relative;
-    }
+        /* Container for sections */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
 
-    .section-title-left {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background-color: red;
-      font-size: 12px;
-      padding: 5px 10px;
-      border: 1px solid black;
-    }
-    .section-title-middle {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background-color: green;
-      font-size: 12px;
-      padding: 5px 10px;
-      border: 1px solid black;
-    }
-    .section-title-right {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background-color: blue;
-      font-size: 12px;
-      padding: 5px 10px;
-      border: 1px solid black;
-    }
+        .section {
+            border: 1px solid black;
+            padding: 20px;
+            margin: 10px;
+            background-color: gray;
+            font-size: 18px;
+            position: relative;
+            width: 32%;
+            display: none; /* Hide by default */
+        }
 
-    /* Desktop view (992px and above) */
-    @media (min-width: 992px) {
-      .container {
-        display: flex;
-        justify-content: space-between;
-      }
+        .section-title-left {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: red;
+            font-size: 12px;
+            padding: 5px 10px;
+            border: 1px solid black;
+        }
 
-      .section {
-        width: 32%;
-        margin: 0;
-      }
-    }
+        .section-title-middle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: green;
+            font-size: 12px;
+            padding: 5px 10px;
+            border: 1px solid black;
+        }
 
-    /* Tablet view (768px to 991px) */
-    @media (min-width: 768px) and (max-width: 991px) {
-      .container {
-        display: flex;
-        flex-wrap: wrap;
-      }
+        .section-title-right {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: blue;
+            font-size: 12px;
+            padding: 5px 10px;
+            border: 1px solid black;
+        }
 
-      .section {
-        width: 48%;
-        margin: 1%;
-      }
+        /* Mobile view (767px and below) */
+        @media (max-width: 767px) {
+            .navbar {
+                display: block; /* Navbar will be displayed only on small screens */
+                width: 100%;
+            }
 
-      .section:nth-child(3) {
-        width: 100%;
-        margin: 10px 0;
-      }
-    }
+            .section {
+                width: 100%;
+            }
 
-    /* Mobile view (767px and below) */
-    @media (max-width: 767px) {
-      .section {
-        width: 100%;
-      }
-    }
+            .dropdown-container .dropdown-menu {
+                width: 100%;
+            }
+
+            /* Show sections based on checkbox state */
+            #show-box1:checked ~ .container #box1,
+            #show-box2:checked ~ .container #box2,
+            #show-box3:checked ~ .container #box3 {
+                display: block;
+            }
+        }
+
+        /* Hide checkboxes visually */
+        input[type="checkbox"] {
+            display: none;
+        }
     </style>
 </head>
 <body>
     <header class="header">
         <nav class="navbar">
-            
             <!-- Navbar Brand -->
             <div class="navbar-brand">
                 <a href="index.html">
@@ -218,30 +212,29 @@
 
             <!-- Dropdown Menu -->
             <div class="dropdown-container">
-                <button class="dropdown-button">Button</button>
-                <ul class="dropdown-menu">
-                    <li><a href="#option1">Rectangle 1</a></li>
-                    <li><a href="#option2">Rectangle 2</a></li>
-                    <li><a href="#option3">Rectangle 3</a></li>
-                </ul>
+                <label class="dropdown-button" for="show-box1">Rectangle 1</label>
+                <input type="checkbox" id="show-box1">
+                <label class="dropdown-button" for="show-box2">Rectangle 2</label>
+                <input type="checkbox" id="show-box2">
+                <label class="dropdown-button" for="show-box3">Rectangle 3</label>
+                <input type="checkbox" id="show-box3">
             </div>
         </nav>
     </header>
 
     <div class="container">
-        <div class="section">
+        <div class="section" id="box1">
             <div class="section-title-left">Left Box</div>
             <p>The left box, also known as the first box, is the box that is the opposite of the right box.</p>
         </div>
-        <div class="section">
+        <div class="section" id="box2">
             <div class="section-title-middle">Middle Box</div>
             <p>The Middle box is also the second box of the series of boxes on this website. It is primarily known for being the only box between two boxes and being the only second box.</p>
         </div>
-        <div class="section">
+        <div class="section" id="box3">
             <div class="section-title-right">Right Box</div>
             <p>Being the last box in the series of boxes causes it to be the third box of the three. It is capable of becoming the big box when conditions are met.</p>
         </div>
     </div>
 </body>
 </html>
-
